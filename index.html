@@ -16,8 +16,14 @@
       });
     </script>
 
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/print.css" rel="stylesheet">
+   
+    <style>
+      .container{max-width:45em;margin:0 auto}
+      .hero{padding:2em;background-color:#f8f8f8;font-size:1.2em;border-bottom:1px solid #ccc;border-top:1px solid #ccc}
+      .content{padding:1em 1em}
+      .content li{list-style-type:none;font-size:1.1em}li img{float:left;padding-right:1em;width:100px;}
+      li img{float:left;padding-right:1em;width:100px;}
+    </style>
 
     <!-- Google Analytics (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-XXXXX-Y"></script>
@@ -73,5 +79,23 @@
         <p>&copy; Web Performance 2014 <span id="crp-stats"></span></p>
       </footer>
     </div>
+
+    <noscript id="deferred-styles">
+      <link href="css/style.css" type="text/css" rel="stylesheet">
+      <link href="css/print.css" type="text/css" rel="stylesheet">
+    </noscript>
+      <script>
+        var loadDeferredStyles = function() {
+          var addStylesNode = document.getElementById("deferred-styles");
+          var replacement = document.createElement("div");
+          replacement.innerHTML = addStylesNode.textContent;
+          document.body.appendChild(replacement)
+          addStylesNode.parentElement.removeChild(addStylesNode);
+        };
+        var raf = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+            window.webkitRequestAnimationFrame || window.msRequestAnimationFrame;
+        if (raf) raf(function() { window.setTimeout(loadDeferredStyles, 0); });
+        else window.addEventListener('load', loadDeferredStyles);
+      </script>
   </body>
 </html>
