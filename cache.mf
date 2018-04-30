@@ -19,6 +19,9 @@ NETWORK:
 
 # Additional resources to cache
 CACHE:
-images/logo1.png
-images/logo2.png
-images/logo3.png
+index.html
+css/style.css
+css/print.css 
+img/profilepic.jpg
+views/images/pizzeria.jpg
+js/perfmatters.js
